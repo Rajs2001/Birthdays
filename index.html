@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Happy birthday to you</title>
+
+</head>
+
+<body>
+
+  <h1>Happy Birthday 🎂</h1>
+
+  
+
+  <p>Dear <span id="receiverName"></span>,</p>
+
+  
+
+  <p>Happy birthday! May all your dreams and wishes come true.</p>
+  
+  <p> Wishing you a day filled with love, laughter, and all the things 
+      that make life special. Happy birthday! </p>
+
+  <p>Best regards,</p>
+
+  <p><span id="senderName"></span></p>
+
+  <script>
+
+    // Extract URL parameters
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const senderName = urlParams.get('sender');
+
+    const receiverName = urlParams.get('receiver');
+
+    // Set sender and receiver names
+
+    document.getElementById('senderName').textContent = senderName;
+
+    document.getElementById('receiverName').textContent = receiverName;
+
+  </script>
+
+</body>
+
+</html>
+
