@@ -1,0 +1,111 @@
+/* CSS Reset */
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+/* Body Styles */
+
+body {
+
+  font-family: Arial, sans-serif;
+
+  background-color: #f2f2f2;
+
+  padding: 20px;
+
+}
+
+/* Header Styles */
+
+h1 {
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  color: #333;
+
+}
+
+/* Paragraph Styles */
+
+p {
+
+  color: #666;
+
+  margin-bottom: 10px;
+
+}
+.fade-in-animation {
+
+  animation: fade-in 1s 4 ease-in-out;
+
+}
+
+.text-animation{
+
+  animation: text-animation 2s infinity linear 
+
+}
+
+/* Animation Styles */
+
+@keyframes fade-in {
+
+  0% {
+
+    opacity: 0;
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+  }
+
+}
+
+@keyframes text-animation {
+
+  0% {
+
+    color: #333;
+
+    text-shadow: none;
+
+    transform: scale(1);
+
+  }
+
+  50% {
+
+    color: #ff0000;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+
+    transform: scale(1.2);
+
+  }
+
+  100% {
+
+    color: #333;
+
+    text-shadow: none;
+
+    transform: scale(1);
+
+  }
+
+}
+
+   
+
