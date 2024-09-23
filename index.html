@@ -71,7 +71,7 @@
             const { name, image } = getQueryParams();
     
             // Updating the name in the wish text
-            const nameElement = document.querySelector('.wish-text');
+            const nameElement = document.querySelectorAll('.wish-text');
             if (nameElement) {
                 nameElement.textContent = name;
             }
