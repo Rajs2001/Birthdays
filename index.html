@@ -71,13 +71,13 @@
             const { name, image } = getQueryParams();
     
             // Updating the name in the wish text
-            const nameElement = document.querySelector('#name-text');
+            var nameElement = document.getElementById('name-text');
             if (nameElement) {
                 nameElement.textContent = name;
             }
 
             // Updating the name in the wish text
-            const nameElement = document.querySelector('#name-text-2');
+            var nameElement = document.getElementById('name-text-2');
             if (nameElement) {
                 nameElement.textContent = name;
             }
