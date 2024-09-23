@@ -71,23 +71,27 @@
             const { name, image } = getQueryParams();
     
             // Updating the name in the wish text
-            const nameElement = document.querySelector('.wish-text');
+            const nameElement = document.querySelector('#name-text');
+            if (nameElement) {
+                nameElement.textContent = name;
+            }
+
+            // Updating the name in the wish text
+            const nameElement = document.querySelector('#name-text-2');
             if (nameElement) {
                 nameElement.textContent = name;
             }
     
             // Updating the image source
-            const imageElement = document.querySelector('#name-text');
+            const imageElement = document.querySelector('.image-container img');
             if (imageElement) {
                 imageElement.src = image;
             }
     
-            const nameElement = document.querySelector('#name-text-2');
-            if (nameElement) {
-                nameElement.textContent = name;
-            }
+            // Rest of your confetti code and animations can stay here...
         });
     </script>
+
     
 
 
