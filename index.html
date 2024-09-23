@@ -1,54 +1,194 @@
 <!DOCTYPE html>
+<!-- l?name=chalchhainyaan&image=https://rajs2001.github.io/Birthday/IMG-20230525-WA0001.jpg -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link >
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="animate-text">Happy Birthday, Rajesh!</h1>
+      </header>
+      <main>
+        <div class="image-container">
+          <img
+            id="image-placeholder"
+            src="default_image.jpg"
+            alt="Birthday celebration"
+            class="animate-image"
+          />
+        </div>
+        <div class="wish-container">
+          <p class="animate-text">
+            Dear <span class="wish-text" id="name-text">Rajesh</span>,
+          </p>
+          <p class="animate-text">
+            On this <span class="wish-text">special day</span>, I want to wish
+            you a birthday filled with <span class="wish-text">joy</span>,
+            <span class="wish-text">laughter</span>, and
+            <span class="wish-text">unforgettable moments</span>. May this year
+            bring you <span class="wish-text">new adventures</span>,
+            <span class="wish-text">exciting opportunities</span>, and
+            <span class="wish-text">countless reasons to smile</span>. Your
+            friendship has been a true
+            <span class="wish-text">blessing</span> in my life, and I'm grateful
+            for all the memories we've shared.
+          </p>
+          <p class="animate-text">
+            May your <span class="wish-text">dreams take flight</span> and your
+            <span class="wish-text">aspirations become reality</span>. Here's to
+            another year of <span class="wish-text">growth</span>,
+            <span class="wish-text">happiness</span>, and
+            <span class="wish-text">success</span>. Cheers to you, my friend!
+          </p>
+          <p class="animate-text">With warmest wishes,</p>
+          <p class="animate-text signature">Raajesh</p>
+        </div>
+      </main>
+    </div>
+    <div id="cursor-trail"></div>
 
-<html>
 
-<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to get query parameters from URL
+            function getQueryParams() {
+                const params = new URLSearchParams(window.location.search);
+                return {
+                    name: params.get('name') || 'Friend', // default if name is not provided
+                    image: params.get('image') || 'default-image.jpg' // default image if not provided
+                };
+            }
+    
+            // Fetching the parameters
+            const { name, image } = getQueryParams();
+    
+            // Updating the name in the wish text
+            const nameElement = document.querySelector('.wish-text');
+            if (nameElement) {
+                nameElement.textContent = name;
+            }
+    
+            // Updating the image source
+            const imageElement = document.querySelector('.image-container img');
+            if (imageElement) {
+                imageElement.src = image;
+            }
+    
+            // Rest of your confetti code and animations can stay here...
+        });
+    </script>
+    
 
-  <meta charset="UTF-8">
 
-  <title>Happy birthday to you</title>
-  <link type="text/css" rel="stylesheet" href="https://rajs2001.github.io/Birthdays/styles.css"
-  <script src="https://rajs2001.github.io/Birthdays/script.js"></script>
-</head>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".container");
+        const cursorTrail = document.getElementById("cursor-trail");
+        const trailElements = [];
+        const maxTrailLength = 20;
 
-<body>
+        function createConfetti() {
+          const confettiCount = 200;
+          const colors = [
+            "#ff4757",
+            "#ff6b6b",
+            "#ff9ff3",
+            "#ffecd2",
+            "#fad0c4",
+          ];
 
-  <h1>Happy Birthday 🎂</h1>
+          for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.backgroundColor =
+              colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.width = `${Math.random() * 10 + 5}px`;
+            confetti.style.height = `${Math.random() * 16 + 8}px`;
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            confetti.style.animation = `confettiFall ${
+              Math.random() * 3 + 2
+            }s linear`;
+            document.body.appendChild(confetti);
 
-  
+            setTimeout(() => {
+              confetti.remove();
+            }, 5000);
+          }
+        }
 
-  <p>Dear <span id="receiverName"></span>,</p>
+        // Start confetti animation
+        createConfetti();
 
-  
+        // Show container with animation after confetti starts falling
+        setTimeout(() => {
+          container.classList.add("show");
+        }, 1000);
 
-  <p>Happy birthday! May all your dreams and wishes come true.</p>
-  
-  <p> Wishing you a day filled with love, laughter, and all the things 
-      that make life special. Happy birthday! </p>
+        function createTrailElement() {
+          const element = document.createElement("div");
+          element.style.position = "absolute";
+          element.style.width = "10px";
+          element.style.height = "10px";
+          element.style.borderRadius = "50%";
+          element.style.background = `radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)`;
+          element.style.opacity = "0.8";
+          element.style.transition = "all 0.3s ease-out";
+          return element;
+        }
 
-  <p>Best regards,</p>
+        function updateTrail(e) {
+          const trailElement = createTrailElement();
+          trailElement.style.left = `${e.clientX}px`;
+          trailElement.style.top = `${e.clientY}px`;
+          cursorTrail.appendChild(trailElement);
+          trailElements.push(trailElement);
 
-  <p><span id="senderName"></span></p>
+          if (trailElements.length > maxTrailLength) {
+            const removedElement = trailElements.shift();
+            cursorTrail.removeChild(removedElement);
+          }
 
-  <script>
+          setTimeout(() => {
+            trailElement.style.opacity = "0";
+            trailElement.style.transform = "scale(2)";
+          }, 100);
+        }
 
-    // Extract URL parameters
+        document.addEventListener("mousemove", updateTrail);
 
-    const urlParams = new URLSearchParams(window.location.search);
+        // Animate text elements
+        const animateTextElements = document.querySelectorAll(".animate-text");
+        animateTextElements.forEach((element, index) => {
+          element.style.animationDelay = `${index * 0.2 + 1}s`;
+        });
 
-    const senderName = urlParams.get('sender');
-
-    const receiverName = urlParams.get('receiver');
-
-    // Set sender and receiver names
-
-    document.getElementById('senderName').textContent = senderName;
-
-    document.getElementById('receiverName').textContent = receiverName;
-
-  </script>
-
-</body>
-
+        // Add confetti to the wish container
+        const wishContainer = document.querySelector(".wish-container");
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement("div");
+          confetti.classList.add("confettis");
+          confetti.style.left = `${Math.random() * 100}%`;
+          confetti.style.top = `${Math.random() * 100}%`;
+          confetti.style.backgroundColor = `hsl(${
+            Math.random() * 360
+          }, 100%, 50%)`;
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          confetti.style.opacity = Math.random();
+          confetti.style.animation = `shine ${
+            5 + Math.random() * 5
+          }s linear infinite`;
+          wishContainer.appendChild(confetti);
+        }
+      });
+    </script>
+  </body>
 </html>
-
