@@ -77,12 +77,15 @@
             }
     
             // Updating the image source
-            const imageElement = document.querySelector('.image-container img');
+            const imageElement = document.querySelector('#name-text');
             if (imageElement) {
                 imageElement.src = image;
             }
     
-            // Rest of your confetti code and animations can stay here...
+            const nameElement = document.querySelector('#name-text-2');
+            if (nameElement) {
+                nameElement.textContent = name;
+            }
         });
     </script>
     
