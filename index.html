@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <header>
-        <h1 class="animate-text">Happy Birthday, <span class="wish-text" id="name-text-2">Rajesh</span></h1>
+        <h1 class="animate-text">Happy Birthday, <span class="wish-text" id="name-text-2"></span></h1>
       </header>
       <main>
         <div class="image-container">
@@ -27,7 +27,7 @@
         </div>
         <div class="wish-container">
           <p class="animate-text">
-            Dear <span class="wish-text" id="name-text">Rajesh</span>,
+            Dear <span class="wish-text" id="name-text"></span>,
           </p>
           <p class="animate-text">
             On this <span class="wish-text">special day</span>, I want to wish
@@ -63,7 +63,7 @@
                 const params = new URLSearchParams(window.location.search);
                 return {
                     name: params.get('name') || 'Friend', // default if name is not provided
-                    image: params.get('image') || 'default-image.jpg' // default image if not provided
+                    image: params.get('image') || 'https://rajs2001.github.io/Birthday/IMG-20230525-WA0001.jpg' // default image if not provided
                 };
             }
     
